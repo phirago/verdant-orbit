@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#10142b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Verdant">
+  <meta name="description" content="Restore a silent alien moon in this cozy mobile terraforming adventure.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Verdant Orbit</title>
+</head>
+<body>
+  <main id="game" aria-label="Verdant Orbit game">
+    <canvas id="world" aria-label="The Ashen Crater"></canvas>
+    <div class="vignette"></div>
+
+    <header class="topbar glass">
+      <div class="brand"><span class="brand-mark">V</span><div><strong>VERDANT ORBIT</strong><small>PATHFINDER ARI VALE // NYSA</small></div></div>
+      <div class="resources" aria-label="Resources">
+        <span title="Moonstone"><i class="gem mineral"></i><b id="mineral">0</b></span>
+        <span title="Water"><i class="gem water"></i><b id="water">0</b></span>
+        <span title="Coal"><i class="gem coal"></i><b id="coal">0</b></span>
+        <span title="Components"><i class="gem components"></i><b id="components">0</b></span>
+        <span title="Spores"><i class="gem spores"></i><b id="spores">1</b></span>
+        <span title="Bioenergy"><i class="gem bio"></i><b id="bioenergy">0</b></span>
+      </div>
+      <button id="menu-button" class="icon-button" aria-label="Open field journal">☰</button>
+    </header>
+
+    <section class="mission glass" aria-live="polite">
+      <small>RESTORATION DIRECTIVE</small>
+      <strong id="objective">Gather 5 moonstone</strong>
+      <div class="mission-line"><span id="objective-bar"></span></div>
+    </section>
+
+    <aside class="ecology glass" aria-label="Ecology status">
+      <div class="stage"><small>BIOME STATE</small><strong id="stage">DORMANT</strong></div>
+      <label>Water <span id="water-value">2%</span><i><b id="water-bar"></b></i></label>
+      <label>Soil <span id="soil-value">3%</span><i><b id="soil-bar"></b></i></label>
+      <label>Flora <span id="flora-value">0%</span><i><b id="flora-bar"></b></i></label>
+      <label>Life <span id="life-value">0%</span><i><b id="life-bar"></b></i></label>
+    </aside>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <div class="survival glass" aria-label="Suit status">
+      <label><span>O₂</span><i><b id="oxygen-bar"></b></i><em id="oxygen-value">100</em></label>
+      <label><span>⚡</span><i><b id="power-bar"></b></i><em id="power-value">100</em></label>
+      <small id="support-status">SUIT RESERVES</small>
+    </div>
+
+    <div id="joystick" class="joystick" aria-label="Movement control"><div id="stick"></div></div>
+    <div class="actions">
+      <button id="sprint-button" class="round-button sprint" aria-label="Sprint"><span>»</span><small>SPRINT</small></button>
+      <button id="build-button" class="round-button build" aria-label="Open restoration tools"><span>✦</span><small>BUILD</small></button>
+      <button id="action-button" class="round-button action" aria-label="Interact"><span>◎</span><small>SCAN</small></button>
+    </div>
+
+    <section id="build-sheet" class="sheet glass" aria-hidden="true">
+      <div class="sheet-head"><div><small>RESTORATION ARCHIVE</small><h2>Build & Seed</h2></div><button id="close-build" class="icon-button">×</button></div>
+      <div class="tabs"><button class="tab active" data-tab="machines">TECH</button><button class="tab" data-tab="species">LIFE</button></div>
+      <div id="build-items" class="build-items"></div>
+      <p class="placement-hint">Craft an item, then tap it again and tap the world to place it.</p>
+    </section>
+
+    <section id="journal" class="journal glass" aria-hidden="true">
+      <div class="sheet-head"><div><small>LYRA ARCHIVE</small><h2>Field Journal</h2></div><button id="close-journal" class="icon-button">×</button></div>
+      <div id="journal-entries"></div>
+      <button id="install-button" class="install">INSTALL VERDANT ORBIT</button>
+      <p id="install-help" class="install-help">Installs as a full-screen landscape game and keeps core files available offline.</p>
+      <button id="reset-button" class="reset">BEGIN A NEW RESTORATION</button>
+    </section>
+
+    <section id="intro" class="intro">
+      <div class="planet"><span></span></div>
+      <small>RESTORATION PROTOCOL 07</small>
+      <h1>VERDANT<br><em>ORBIT</em></h1>
+      <p>One pathfinder. One finite breath. An entire world to awaken.</p>
+      <button id="start-button">BEGIN PATHFALL <span>→</span></button>
+      <small class="tip">Move · Drag the world to orbit the camera · Build safe havens · Restore Nysa</small>
+    </section>
+  </main>
+  <script type="module" src="src/app.mjs"></script>
+</body>
+</html>
