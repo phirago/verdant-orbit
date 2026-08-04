@@ -45,6 +45,10 @@ test('PWA asset paths are project-relative for GitHub Pages hosting', async () =
   assert.equal(manifest.scope, './');
   assert.ok(manifest.icons.every((icon) => !icon.src.startsWith('/')));
   assert.match(app, /\.\.\/vendor\/three\.module\.js/);
+  const threeModule = await read('vendor/three.module.js');
+  assert.match(threeModule, /\.\/three\.core\.js/);
+  await assert.doesNotReject(() => read('vendor/three.core.js'));
+  assert.match(worker, /\.\/vendor\/three\.core\.js/);
   assert.match(app, /register\('\.\/service-worker\.js'\)/);
   assert.doesNotMatch(worker, /['"]\//);
 });

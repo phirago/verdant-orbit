@@ -1,7 +1,7 @@
-const CACHE = 'verdant-orbit-v5-pages';
+const CACHE = 'verdant-orbit-v6-pages';
 const ASSETS = [
   './', './index.html', './styles.css', './src/app.mjs', './src/game-state.mjs',
-  './src/movement.mjs', './vendor/three.module.js', './manifest.webmanifest',
+  './src/movement.mjs', './vendor/three.module.js', './vendor/three.core.js', './manifest.webmanifest',
   './assets/icon.svg', './assets/icon-192.png', './assets/icon-512.png',
   './assets/apple-touch-icon.png',
 ];
